@@ -12,26 +12,45 @@
  * details.
  *
  * You should have received a copy of the GNU Lesser General Public License
- * aInteger with this library; if not, write to the Free Software Foundation, Inc.,
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
  */
-package net.openj21.mih.datatype.basic;
+package net.openj21.mih.datatype.link;
+
+import net.openj21.mih.datatype.basic.SEQUENCE;
+import net.openj21.mih.datatype.basic.SEQUENCE_ELEMENT;
+import net.openj21.mih.datatype.basic.UNSIGNED_INT;
 
 /**
- * Represents a percentage.
- * Valid Range: 0..100
+ * Represents the link type. Number assignments:
+ * 
+ * <pre>
+ * 0: Reserved
+ * 1: Wireless - GSM
+ * 2: Wireless - GPRS
+ * 3: Wireless - EDGE
+ * 15: Ethernet
+ * 18: Wireless - Other
+ * 19: Wireless - IEEE 802.11
+ * 22: Wireless - CDMA2000
+ * 23: Wireless - UMTS
+ * 24: Wireless - cdma2000-HRPD
+ * 27: Wireless - IEEE 802.16
+ * 28: Wireless - IEEE 802.20
+ * 29: Wireless - IEEE 802.22
+ * </pre>
  */
-@CHOICE
-public class PERCENTAGE {
+@SEQUENCE
+public class LINK_TYPE {
 	@SEQUENCE_ELEMENT(order = 1, basicType = true)
 	@UNSIGNED_INT(size = 1)
 	private Integer value;
 
-	public PERCENTAGE() {
+	public LINK_TYPE() {
 	}
 
-	public PERCENTAGE(Integer value) {
+	public LINK_TYPE(Integer value) {
 		this.value = value;
 	}
 
@@ -50,7 +69,7 @@ public class PERCENTAGE {
 		if (o == null || getClass() != o.getClass())
 			return false;
 
-		PERCENTAGE that = (PERCENTAGE) o;
+		LINK_TYPE that = (LINK_TYPE) o;
 
 		if (value != null ? !value.equals(that.value)
 				: that.value != null)
@@ -66,6 +85,6 @@ public class PERCENTAGE {
 
 	@Override
 	public String toString() {
-		return "PERCENTAGE{" + "value=" + value + '}';
+		return "LINK_TYPE{" + "value=" + value + '}';
 	}
 }

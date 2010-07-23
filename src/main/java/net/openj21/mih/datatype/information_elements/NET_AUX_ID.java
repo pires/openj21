@@ -12,35 +12,39 @@
  * details.
  *
  * You should have received a copy of the GNU Lesser General Public License
- * aInteger with this library; if not, write to the Free Software Foundation, Inc.,
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
  */
-package net.openj21.mih.datatype.basic;
+package net.openj21.mih.datatype.information_elements;
+
+import net.openj21.mih.datatype.basic.OCTET_STRING;
+import net.openj21.mih.datatype.basic.SEQUENCE;
+import net.openj21.mih.datatype.basic.SEQUENCE_ELEMENT;
 
 /**
- * Represents a percentage.
- * Valid Range: 0..100
+ * A type to represent an auxiliary access network identifier. This is HESSID if
+ * network type is IEEE 802.11.
  */
-@CHOICE
-public class PERCENTAGE {
+@SEQUENCE
+public class NET_AUX_ID {
 	@SEQUENCE_ELEMENT(order = 1, basicType = true)
-	@UNSIGNED_INT(size = 1)
-	private Integer value;
+	@OCTET_STRING(size = 253)
+	private String netAuxId;
 
-	public PERCENTAGE() {
+	public NET_AUX_ID() {
 	}
 
-	public PERCENTAGE(Integer value) {
-		this.value = value;
+	public NET_AUX_ID(String netAuxId) {
+		this.netAuxId = netAuxId;
 	}
 
-	public Integer getValue() {
-		return value;
+	public String getNetAuxId() {
+		return netAuxId;
 	}
 
-	public void setValue(Integer value) {
-		this.value = value;
+	public void setNetAuxId(String netAuxId) {
+		this.netAuxId = netAuxId;
 	}
 
 	@Override
@@ -50,10 +54,10 @@ public class PERCENTAGE {
 		if (o == null || getClass() != o.getClass())
 			return false;
 
-		PERCENTAGE that = (PERCENTAGE) o;
+		NET_AUX_ID that = (NET_AUX_ID) o;
 
-		if (value != null ? !value.equals(that.value)
-				: that.value != null)
+		if (netAuxId != null ? !netAuxId.equals(that.netAuxId)
+				: that.netAuxId != null)
 			return false;
 
 		return true;
@@ -61,11 +65,11 @@ public class PERCENTAGE {
 
 	@Override
 	public int hashCode() {
-		return value != null ? value.hashCode() : 0;
+		return netAuxId != null ? netAuxId.hashCode() : 0;
 	}
 
 	@Override
 	public String toString() {
-		return "PERCENTAGE{" + "value=" + value + '}';
+		return "NET_AUX_ID{" + "netAuxId='" + netAuxId + '\'' + '}';
 	}
 }

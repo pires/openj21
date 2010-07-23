@@ -16,22 +16,25 @@
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
  */
-package net.openj21.mih.datatype.basic;
+package net.openj21.mih.datatype.link;
+
+import net.openj21.mih.datatype.basic.CHOICE;
+import net.openj21.mih.datatype.basic.SEQUENCE_ELEMENT;
+import net.openj21.mih.datatype.basic.UNSIGNED_INT;
 
 /**
- * Represents a percentage.
- * Valid Range: 0..100
+ * A type to represent the maximum data rate in kb/s. Valid Range: 0 – 232–1
  */
 @CHOICE
-public class PERCENTAGE {
+public class LINK_DATA_RATE {
 	@SEQUENCE_ELEMENT(order = 1, basicType = true)
-	@UNSIGNED_INT(size = 1)
+	@UNSIGNED_INT(size = 4)
 	private Integer value;
 
-	public PERCENTAGE() {
+	public LINK_DATA_RATE() {
 	}
 
-	public PERCENTAGE(Integer value) {
+	public LINK_DATA_RATE(Integer value) {
 		this.value = value;
 	}
 
@@ -50,7 +53,7 @@ public class PERCENTAGE {
 		if (o == null || getClass() != o.getClass())
 			return false;
 
-		PERCENTAGE that = (PERCENTAGE) o;
+		LINK_DATA_RATE that = (LINK_DATA_RATE) o;
 
 		if (value != null ? !value.equals(that.value)
 				: that.value != null)
@@ -66,6 +69,6 @@ public class PERCENTAGE {
 
 	@Override
 	public String toString() {
-		return "PERCENTAGE{" + "value=" + value + '}';
+		return "LINK_DATA_RATE{" + "value=" + value + '}';
 	}
 }
