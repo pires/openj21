@@ -38,7 +38,7 @@ import net.openj21.mih.datatype.basic.OCTET;
 import net.openj21.mih.datatype.basic.SEQUENCE;
 import net.openj21.mih.datatype.basic.SEQUENCE_ELEMENT;
 import net.openj21.mih.datatype.basic.UNSIGNED_INT;
-import net.openj21.mih.datatype.general.OCTET_STRING;
+import net.openj21.mih.datatype.basic.OCTET_STRING;
 import net.openj21.mih.protocol.codec.basic.BitmapCodec;
 import net.openj21.mih.protocol.codec.basic.OctetCodec;
 import net.openj21.mih.protocol.codec.basic.OctetStringCodec;

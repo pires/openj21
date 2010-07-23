@@ -18,10 +18,10 @@
  */
 package net.openj21.mih.datatype.address;
 
+import net.openj21.mih.datatype.basic.OCTET_STRING;
 import net.openj21.mih.datatype.basic.SEQUENCE;
 import net.openj21.mih.datatype.basic.SEQUENCE_ELEMENT;
 import net.openj21.mih.datatype.basic.UNSIGNED_INT;
-import net.openj21.mih.datatype.general.OCTET_STRING;
 
 /**
  * Represents an IP address. The Address Type is either 1 (IPv4) or 2 (IPv6).
@@ -67,13 +67,13 @@ public class IP_ADDR {
 		if (o == null || getClass() != o.getClass())
 			return false;
 
-		IP_ADDR ip_addr = (IP_ADDR) o;
+		IP_ADDR that = (IP_ADDR) o;
 
-		if (address != null ? !address.equals(ip_addr.address)
-				: ip_addr.address != null)
+		if (address != null ? !address.equals(that.address)
+				: that.address != null)
 			return false;
-		if (addressType != null ? !addressType.equals(ip_addr.addressType)
-				: ip_addr.addressType != null)
+		if (addressType != null ? !addressType.equals(that.addressType)
+				: that.addressType != null)
 			return false;
 
 		return true;

@@ -19,9 +19,9 @@
 package net.openj21.mih.datatype.address;
 
 import net.openj21.mih.datatype.basic.CHOICE;
+import net.openj21.mih.datatype.basic.OCTET_STRING;
 import net.openj21.mih.datatype.basic.SEQUENCE_ELEMENT;
 import net.openj21.mih.datatype.basic.UNSIGNED_INT;
-import net.openj21.mih.datatype.general.OCTET_STRING;
 
 /**
  * Represents a MAC address. The Address Type contains the one used for a
@@ -68,13 +68,13 @@ public class MAC_ADDR extends LINK_ADDR {
 		if (o == null || getClass() != o.getClass())
 			return false;
 
-		MAC_ADDR mac_addr = (MAC_ADDR) o;
+		MAC_ADDR that = (MAC_ADDR) o;
 
-		if (address != null ? !address.equals(mac_addr.address)
-				: mac_addr.address != null)
+		if (address != null ? !address.equals(that.address)
+				: that.address != null)
 			return false;
-		if (addressType != null ? !addressType.equals(mac_addr.addressType)
-				: mac_addr.addressType != null)
+		if (addressType != null ? !addressType.equals(that.addressType)
+				: that.addressType != null)
 			return false;
 
 		return true;

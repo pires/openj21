@@ -19,8 +19,8 @@
 package net.openj21.mih.datatype.address;
 
 import net.openj21.mih.datatype.basic.CHOICE;
+import net.openj21.mih.datatype.basic.OCTET_STRING;
 import net.openj21.mih.datatype.basic.SEQUENCE_ELEMENT;
-import net.openj21.mih.datatype.general.OCTET_STRING;
 
 /**
  * A data type to represent a 3GPP transport address.
