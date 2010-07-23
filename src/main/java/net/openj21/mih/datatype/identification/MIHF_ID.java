@@ -18,9 +18,9 @@
  */
 package net.openj21.mih.datatype.identification;
 
+import net.openj21.mih.datatype.basic.OCTET_STRING;
 import net.openj21.mih.datatype.basic.SEQUENCE;
 import net.openj21.mih.datatype.basic.SEQUENCE_ELEMENT;
-import net.openj21.mih.datatype.general.OCTET_STRING;
 
 /**
  * The MIHF Identifier: MIHF_ID is a network access identifier (NAI). NAI shall
