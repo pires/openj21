@@ -21,6 +21,7 @@ package net.openj21.mih.datatype.address;
 import net.openj21.mih.datatype.basic.CHOICE;
 
 /**
+ * A data type to represent an address of any link layer.
  */
 @CHOICE( { MAC_ADDR.class, THREEGPP_3G_CELL_ID.class,
 		THREEGPP_2G_CELL_ID.class, THREEGPP_ADDR.class, THREEGPP2_ADDR.class,
