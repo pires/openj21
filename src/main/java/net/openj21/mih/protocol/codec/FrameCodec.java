@@ -85,7 +85,6 @@ public class FrameCodec {
      * @return a MIHFrame
      * @throws FrameDecodeException if the encodedFrame is invalid for some reason
      */
-    @SuppressWarnings("unchecked")
     public MIHFrame decodeFrame(ChannelBuffer encodedFrame) throws FrameDecodeException {
         if (logger.isLoggable(Level.FINE)) {
             logger.log(Level.FINE, "Received frame: {}", toString(encodedFrame));
