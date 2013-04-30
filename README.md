@@ -1,4 +1,4 @@
-openj21
+OpenJ21
 =======
 
 Open-Source IEEE802.21 protocol Java implementation
