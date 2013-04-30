@@ -89,8 +89,8 @@
           <header>${basedir}/COPYRIGHT.txt</header>
           <strictCheck>true</strictCheck>
           <includes>
-            <include>src/main/java/**/*.java</include>
-            <include>src/test/java/**/*.java</include>
+            <include>src/main/java/net/**/*.java</include>
+            <include>src/test/java/net/**/*.java</include>
           </includes>
           <useDefaultExcludes>true</useDefaultExcludes>
           <encoding>UTF-8</encoding>

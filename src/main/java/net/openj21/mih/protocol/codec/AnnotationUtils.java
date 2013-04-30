@@ -19,7 +19,8 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 
 import net.openj21.mih.datatype.basic.SEQUENCE_ELEMENT;
-import net.openj21.utils.ReflectionUtils;
+
+import org.springframework.util.ReflectionUtils;
 
 /**
  * Static methods for working with annotations via reflection.

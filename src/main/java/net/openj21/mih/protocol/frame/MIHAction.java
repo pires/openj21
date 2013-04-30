@@ -12,11 +12,10 @@
  */
 package net.openj21.mih.protocol.frame;
 
+import java.util.AbstractMap.SimpleImmutableEntry;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-
-import net.openj21.utils.SimpleImmutableEntry;
 
 /**
  * The action identifier (AID) value for MIH messages (10 bits).
