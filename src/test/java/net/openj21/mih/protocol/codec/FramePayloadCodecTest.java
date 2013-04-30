@@ -25,7 +25,6 @@ import net.openj21.mih.services.ServiceRequest;
 import org.jboss.netty.buffer.ChannelBuffer;
 import org.jboss.netty.buffer.ChannelBuffers;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -53,47 +52,43 @@ public class FramePayloadCodecTest {
 	 * @throws FrameDecodeException
 	 *             if the test fails
 	 */
-	@Ignore("won't pass because GetInformationRequest is not implemented.")
 	@Test
 	public void testServiceSpecificTLVsForwarded() throws FrameDecodeException {
 		byte[] sourceType = (new byte[] { TLVType.SOURCE_MIHF_ID.byteValue() });
 		byte[] sourceLen = (new byte[] { 1 });
 		byte[] sourceValue = (new byte[] { 'S' });
 		ChannelBuffer source = ChannelBuffers.wrappedBuffer(sourceType,
-				sourceLen, sourceValue);
+		        sourceLen, sourceValue);
 
 		byte[] destType = (new byte[] { TLVType.DESTINATION_MIHF_ID.byteValue() });
 		byte[] destLen = (new byte[] { 1 });
 		byte[] destValue = (new byte[] { 'D' });
 		ChannelBuffer dest = ChannelBuffers.wrappedBuffer(destType, destLen,
-				destValue);
+		        destValue);
 
 		byte[] vSpecType = new byte[] { TLVType.VENDOR_SPECIFIC.byteValue() };
 		byte[] vSpecLen = (new byte[] { 2 });
 		byte[] vSpecValue = (new byte[] { 100, -100 });
 		ChannelBuffer vSpec = ChannelBuffers.wrappedBuffer(vSpecType, vSpecLen,
-				vSpecValue);
+		        vSpecValue);
 
 		// the whole payload
 		ChannelBuffer payload = ChannelBuffers.wrappedBuffer(source, dest,
-				vSpec);
+		        vSpec);
 
 		// mock
 		when(serialiser.deserialise(payload)).thenReturn(
-				Arrays.asList(
-						new TLVElement(TLVType.SOURCE_MIHF_ID, source
-								.readableBytes(), source),
-						new TLVElement(TLVType.DESTINATION_MIHF_ID, dest
-								.readableBytes(), dest), new TLVElement(
-								TLVType.VENDOR_SPECIFIC, vSpec.readableBytes(),
-								vSpec)));
+		        Arrays.asList(
+		                new TLVElement(TLVType.SOURCE_MIHF_ID, source
+		                        .readableBytes(), source),
+		                new TLVElement(TLVType.DESTINATION_MIHF_ID, dest
+		                        .readableBytes(), dest), new TLVElement(
+		                        TLVType.VENDOR_SPECIFIC, vSpec.readableBytes(),
+		                        vSpec)));
 		when(stringCodec.decode(source)).thenReturn("S");
 		when(stringCodec.decode(dest)).thenReturn("D");
 
 		// wire
-		// TODO
-		// FramePayloadCodec<GetInformationRequest> payloadCodec =
-		// createDecoder();
 		FramePayloadCodec payloadCodec = createDecoder();
 		payloadCodec.setTlvSerialiser(serialiser);
 		payloadCodec.setStringCodec(stringCodec);
